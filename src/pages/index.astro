@@ -1,0 +1,23 @@
+---
+import '../styles/global.css'
+import Post from '../components/Post.astro'
+import db from '../../db.json'
+
+const posts = db.posts
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Galería de Animes</title>
+  </head>
+  <body class="container mx-auto p-8">
+    <h1 class="text-3xl font-bold mb-6">Mapa del top 20 de mis animes japoneses preferidos</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {posts.map((post) => (
+        <Post post={post} />
+      ))}
+    </div>
+  </body>
+</html>
